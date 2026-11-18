@@ -183,7 +183,8 @@ export async function GET(request: NextRequest) {
         return approval.status === "pending";
     }).map((approval) => ({
         id: approval.id,
-        title: `${approval.title} by (${approval.requestedBy.name})`,
+        title: approval.title,
+        by: approval.requestedBy.name,
         description: approval.description,
     }));
 
